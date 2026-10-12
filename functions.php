@@ -1,11 +1,5 @@
 <?php
-/**
- * BlogNova Theme Functions
- */
 
-/*
- * 1. Load the CSS file.
- */
 function blognova_enqueue_styles() {
     wp_enqueue_style(
         'blognova-style',
@@ -16,6 +10,16 @@ function blognova_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'blognova_enqueue_styles');
 
+
+
+function mytheme_register_menus() {
+    register_nav_menus( array(
+        'primary' => 'Primary Menu',
+        'footer'  => 'Footer Menu',
+    ) );
+}
+
+add_action( 'after_setup_theme', 'mytheme_register_menus' );
 
 /*
  * 2. Enable WordPress features.
